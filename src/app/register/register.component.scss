@@ -1,0 +1,33 @@
+input{
+  border:0;
+  border-bottom: 1px solid rgb(161, 157, 157);
+  border-radius: 0;
+}
+input:focus {
+  box-shadow: none;
+  border-bottom: 1px solid lightgray;
+}
+span{
+  color:red;
+}
+
+label{
+  color:rgb(110, 107, 107)
+}
+@media screen and (max-width:950px) {
+  .rForm{
+    padding-right: 25px !important;
+  }
+  .fCls{
+    padding-left: 0px !important;
+  }
+}
+@media screen and (max-width:574px) {
+  .pic{
+    display:none
+  }
+  .rForm{
+    width:80%;
+    margin:0 auto;
+  }
+}

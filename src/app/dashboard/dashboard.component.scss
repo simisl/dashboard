@@ -1,0 +1,22 @@
+button{
+  color:white;
+}
+.mat-drawer-container{
+  height:100%;
+}
+.mat-drawer{
+  width:25%;
+}
+ul li:hover{
+  background-color: #343a40;
+}
+a:hover{
+  color:white !important;
+}
+a{
+  color: black !important;
+  font-weight: bold;
+}
+.active{
+  border: 1px solid lightgray;
+}

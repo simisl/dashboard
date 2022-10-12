@@ -1,0 +1,49 @@
+
+<div class="conatiner-fluid h-100">
+  <div class="row h-100">
+    <div class="col-sm-8 h-100 pic">
+      <img src="./assets/pic.jpg" class="w-100 h-100">
+    </div>
+    <div class="col-sm-4 h-100 pt-5 pe-5 rForm">
+      <div class="w-100 ps-3 mt-5 fCls" >
+        <h2>Register</h2>
+        <form [formGroup]="registerform" (ngSubmit)="register(registerform.value)">
+          <div class="form-floating mb-3">
+            <input type="text" placeholder="Enter your name" id="fullname" class="form-control" formControlName="fullname" required>
+            <label class="form-label" for="fullname">FullName</label>
+            <span *ngIf="registerform.get('fullname')?.errors?.['required'] && registerform.get('fullname')?.touched">
+              fullname is required
+          </span>
+          </div>
+          <div class="form-floating mb-3">
+            <input type="email" placeholder="Enter your email" id="mail" class="form-control" formControlName="mail" required>
+            <label class="form-label" for="mail">Email</label>
+            <span *ngIf="registerform.get('mail')?.errors?.['required'] && registerform.get('mail')?.touched">
+              mail is required
+          </span>
+          </div>
+          <div class="form-floating mb-3">
+            <input type="text" placeholder="Enter your name" id="name" class="form-control" formControlName="name" required>
+            <label class="form-label" for="name">Username</label>
+            <span *ngIf="registerform.get('name')?.errors?.['required'] && registerform.get('name')?.touched">
+              name is required
+          </span>
+          </div>
+          <div class="form-floating mb-3">
+            <input type="password" placeholder="Password" id="pass" class="form-control" formControlName="pass" required>
+            <label class="form-label" for="pass">Password</label>
+            <span *ngIf="registerform.get('pass')?.errors?.['required'] && registerform.get('pass')?.touched">
+              password is required
+          </span>
+          </div>
+
+          <button type="submit" class="btn btn-success w-50 mt-3" >Register</button>
+        </form>
+
+     </div>
+    </div>
+
+  </div>
+
+
+</div>

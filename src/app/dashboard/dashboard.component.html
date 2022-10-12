@@ -1,0 +1,37 @@
+<nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+  <div class="container-fluid">
+    <div class="navbar-brand">Home</div>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+
+      <div class="d-flex" role="search">
+        <button mat-icon-button class="example-icon w-25" aria-label="Example icon-button with share icon" (click)="logout()">
+          <mat-icon>logout</mat-icon><span>Logout</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</nav>
+  <mat-drawer-container class="example-container">
+    <mat-drawer mode="side" opened>
+      <h1 class="mt-5 ps-2" >Welcome {{name}}</h1>
+      <ul class="nav flex-column">
+
+        <li class="nav-item " [ngClass]={active:profile}>
+          <a class="nav-link" aria-current="page"  (click)="loadProfile()">PROFILE</a>
+        </li>
+        <li class="nav-item" [ngClass]={active:li} >
+          <a class="nav-link" (click)="loadList()">LIST</a>
+        </li>
+      </ul>
+
+    </mat-drawer>
+    <mat-drawer-content>
+      Dashboard
+      <ng-template #loadComponent></ng-template>
+
+    </mat-drawer-content>
+  </mat-drawer-container>
+

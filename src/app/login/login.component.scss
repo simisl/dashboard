@@ -1,0 +1,28 @@
+.d-flex{
+  background-image: url('/assets/img.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+
+}
+
+.login{
+  width:35%;
+  background-color: white;
+  opacity: .8;
+}
+span{
+  color:red;
+}
+@media screen and (max-width:900px) {
+  .login{
+    width:50% !important;
+  }
+}
+@media screen and (max-width:600px) {
+  .login{
+    width:80% !important;
+  }
+  button{
+    width:65% !important;
+  }
+}
