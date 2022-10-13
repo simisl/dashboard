@@ -1,4 +1,6 @@
 import { Injectable } from '@angular/core';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { catchError, Observable, retry, throwError } from 'rxjs';
 
 
 @Injectable({
@@ -6,7 +8,7 @@ import { Injectable } from '@angular/core';
 })
 export class UserService {
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   setStatus(status:any){
     localStorage.setItem('status',JSON.stringify(status));
@@ -14,5 +16,14 @@ export class UserService {
   get user(){
     const user = JSON.parse(localStorage.getItem('status') || '[]');
     return user;
+  }
+  getProjects(): Observable<any>{
+    return this.http.get<any>('api/projectlist').pipe(
+      retry(2),
+      catchError((error: HttpErrorResponse) => {
+        console.error(error);
+        return throwError(error);
+      })
+    );
   }
 }

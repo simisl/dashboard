@@ -2,6 +2,7 @@ import { Component, OnInit, Type, ViewChild, ViewContainerRef } from '@angular/c
 import { User } from '../model/user.model';
 import { UserService } from '../user.service';
 import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-dashboard',
@@ -16,13 +17,19 @@ export class DashboardComponent implements OnInit {
   list!: string
   profile!: boolean;
   li!: boolean;
+  items:any;
 
-  constructor(private service: UserService, private route: Router) { }
+  constructor(private service: UserService, private route: Router,private http: HttpClient) { }
 
   ngOnInit(): void {
     this.name = '';
     this.profile = false;
     this.li = false;
+
+    this.service.getProjects().subscribe(data=>{
+      console.log('popi',data)
+      this.items = data
+    })
   }
   ngAfterContentChecked(){
     this.name = this.list;

@@ -11,6 +11,9 @@ import {NgxsReduxDevtoolsPluginModule} from '@ngxs/devtools-plugin';
 import {NgxsLoggerPluginModule} from '@ngxs/logger-plugin';
 import { UserState } from './state/user.state';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { InMemoryWebApiModule} from 'angular-in-memory-web-api';
+import { DemoDbService } from './demo-db/demo-db.service';
 
 @NgModule({
   declarations: [
@@ -25,7 +28,9 @@ import { FormsModule } from '@angular/forms';
     BrowserAnimationsModule,
     NgxsModule.forRoot([UserState]),
     NgxsLoggerPluginModule.forRoot(),
+    InMemoryWebApiModule.forRoot(DemoDbService),
     NgxsReduxDevtoolsPluginModule.forRoot(),
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
