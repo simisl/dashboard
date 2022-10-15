@@ -2,8 +2,6 @@
   <form [formGroup]="projectForm" class="d-flex flex-column w-50" (ngSubmit)="formSub(projectForm.value)">
     <label>Reference Links</label>
     <ng-select [items]="ref"
-    bindLabel="name"
-    bindValue="id"
     [addTag]="newProject"
     [multiple]="true"
     placeholder="Type here" formControlName="lang" class="pb-3">
@@ -11,8 +9,6 @@
 
     <label>Project Skills</label>
     <ng-select [items]="project"
-    bindLabel="name"
-    bindValue="id"
     [multiple]="true"
     placeholder="select" formControlName="projects" class="pb-3">
     </ng-select>
