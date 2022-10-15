@@ -9,7 +9,7 @@
       <input class="form-control mr-sm-2 w-50" type="search" placeholder="Search" aria-label="Search">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0 w-100">
         <li class="nav-item text-center  pl-4  pr-4" [ngClass]={active:li} >
-          <a class="nav-link" >
+          <a class="nav-link">
             <mat-icon >
             home</mat-icon><br>Home
             </a>
@@ -50,7 +50,7 @@
       <!-- <h1 class="mt-5 ps-2" >Welcome {{name}}</h1> -->
       <ul class="nav flex-column mt-5 ms-4">
         <li class="nav-item pb-4" [ngClass]={active:li} >
-          <a class="nav-link" >
+          <a class="nav-link"  (click)="loadFront()">
             <mat-icon >
             home</mat-icon>Home
             </a>
@@ -78,56 +78,8 @@
 
     </mat-drawer>
     <mat-drawer-content>
-      <div class="container">
-      <div class="row mt-4 ml-2 mr-2">
-        <div class="col-md-6" >
-            <div class="d-flex">
-              <p  class="fs-6 mr-5 mt-2">Projects</p>
-              <input class="form-control mr-sm-2 w-75" type="search" placeholder="Search" aria-label="Search">
-            </div>
-        </div>
-        <div class="col-md-6" >
-          <button class="btn btn-outline-success btn-success my-2 my-sm-0 float-end" type="submit">+ Add Project</button>
-        </div>
-      </div>
-      <div class="row p-4 ">
-        <div *ngFor = "let item of items" class="col-md-3 p-1">
-            <div class="card mb-1">
-              <div class="card-body p-0">
-                <div  class="card-title m-1 p-2 d-flex">
-                  <h4><b>{{item.title | titlecase}} </b></h4>
-                  <a [matMenuTriggerFor]="menu" class="text-body ">...</a>
-                    <mat-menu #menu="matMenu" >
-                      <button mat-menu-item class="text-body">Item 1</button>
-                      <button mat-menu-item class="text-body">Item 2</button>
-                    </mat-menu>
-                 </div>
 
-                <p class="m-0 text-muted p-2 ">{{item.tasks}} tasks completed</p>
-                <mat-divider></mat-divider>
-                <p class="m-0 p-2"><span [ngStyle]="{'color':item.code}">{{item.completed}}</span> completed</p>
-                <div class="progress me-2 ms-2"  >
-                  <div class="progress-bar" role="progressbar" aria-label="Warning example"  [ngStyle]="{'width':item.completed,'background-color':item.code}" aria-valuenow=item.completed aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-                <p class="card-text p-2 text-muted">{{item.description}}</p>
-
-                <div class="float-start">
-                  <span class="pl-2 text-muted">Created</span><br>
-                  <p class="pl-2">{{item.created}}</p>
-                </div>
-                <div class="float-end">
-                  <span class="pr-2 text-muted">Deadline</span><br>
-                  <p class="pr-2">{{item.Deadline}}</p>
-                </div>
-                </div>
-              <mat-divider ></mat-divider>
-              <p class="pl-2 text-muted m-0">Teams</p>
-              <img [src]="item.url" class="ml-2 mb-1" />
-              </div>
-            </div>
-          </div>
-      <ng-template #loadComponent></ng-template>
-</div>
+  <ng-template #loadComponent></ng-template>
     </mat-drawer-content>
   </mat-drawer-container>
 

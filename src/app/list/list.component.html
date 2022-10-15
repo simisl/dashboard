@@ -1,1 +1,35 @@
-<p>Employee list is empty</p>
+<div class="container mt-5">
+  <form [formGroup]="projectForm" class="d-flex flex-column w-50" (ngSubmit)="formSub(projectForm.value)">
+    <label>Reference Links</label>
+    <ng-select [items]="ref"
+    bindLabel="name"
+    bindValue="id"
+    [addTag]="newProject"
+    [multiple]="true"
+    placeholder="Type here" formControlName="lang" class="pb-3">
+    </ng-select>
+
+    <label>Project Skills</label>
+    <ng-select [items]="project"
+    bindLabel="name"
+    bindValue="id"
+    [multiple]="true"
+    placeholder="select" formControlName="projects" class="pb-3">
+    </ng-select>
+
+    <button type="submit">Show</button>
+  </form>
+
+<div *ngIf="data" class="mt-5">
+  <div class="row ">
+    <b>Skills </b>
+    <div class="col-12 " *ngFor= "let sk of lang">
+       {{sk}}
+    </div>
+<b class="mt-3">Projects </b>
+    <div class="col-12" *ngFor= "let sk of projects">
+       {{sk}}
+    </div>
+  </div>
+</div>
+</div>

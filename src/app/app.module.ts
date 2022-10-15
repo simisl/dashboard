@@ -14,11 +14,14 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { InMemoryWebApiModule} from 'angular-in-memory-web-api';
 import { DemoDbService } from './demo-db/demo-db.service';
+import { NgSelectModule } from '@ng-select/ng-select';
+// import { ProjectComponent } from './main/project/project.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    // ProjectComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +33,8 @@ import { DemoDbService } from './demo-db/demo-db.service';
     NgxsLoggerPluginModule.forRoot(),
     InMemoryWebApiModule.forRoot(DemoDbService),
     NgxsReduxDevtoolsPluginModule.forRoot(),
-    HttpClientModule
+    HttpClientModule,
+    NgSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]

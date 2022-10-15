@@ -23,20 +23,21 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit(): void {
     this.name = '';
-    this.profile = false;
-    this.li = false;
+    // this.profile = false;
+    // this.li = false;
 
     this.service.getProjects().subscribe(data=>{
       console.log('popi',data)
       this.items = data
     })
+    this.loadFront()
   }
   ngAfterContentChecked(){
     this.name = this.list;
   }
   async loadProfile(){
-    this.profile = true;
-    this.li = false;
+    // this.profile = true;
+    // this.li = false;
     const {ProfileComponent}   = await import('../profile/profile.component')
     this.loadComponent.clear();
     let senddata = this.loadComponent.createComponent(ProfileComponent)
@@ -44,8 +45,8 @@ export class DashboardComponent implements OnInit {
     senddata.instance.name = data.name
   }
   async loadList(){
-    this.profile = false;
-    this.li = true;
+    // this.profile = false;
+    // this.li = true;
     const { ListComponent } = await import('../list/list.component');
     this.loadComponent.clear();
     let data = this.loadComponent.createComponent(ListComponent);
@@ -54,6 +55,13 @@ export class DashboardComponent implements OnInit {
     })
 
   }
+  async loadFront(){
+    const {FrontpageComponent} = await import('../main/frontpage/frontpage.component')
+    this.loadComponent.clear();
+    this.loadComponent.createComponent(FrontpageComponent)
+
+  }
+
   logout(){
     this.route.navigate(['/']);
     localStorage.setItem('status','');

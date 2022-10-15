@@ -20,7 +20,12 @@ const routes: Routes = [
     path:'home',
     loadChildren: ()=> import('./dashboard/dashboard.module').then(m => m.DashboardModule),
     canActivate: [AuthGuard]
-  }
+  },
+  // {
+  //   path:'frontpage',
+  //   loadChildren: ()=> import('./main/frontpage/frontpage.module').then(m => m.FrontpageModule),
+  //   canActivate: [AuthGuard]
+  // }
 ];
 
 @NgModule({
